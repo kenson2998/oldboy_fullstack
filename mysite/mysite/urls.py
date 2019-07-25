@@ -20,6 +20,9 @@ from blog import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^show_time/', views.show_time),
+    url(r'^/', views.show_time),
+    url(r'^login/', views.login,name="login"),
     url(r'^blog/', include('blog.urls')),
+
 
 ]

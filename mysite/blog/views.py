@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, render_to_response
 import time
 
 
@@ -11,10 +11,10 @@ def show_time(request):  # 必須要有req行參 ,給 user傳輸的
     times = time.ctime()
     # return HttpResponse("Hello")
     # return render(request, "show_timea.html", locals())
-    return render(request, "show_timea.html", {"times": times})
+    return render(request, "show_timea.html", locals())
 
 
-def article_year(request, year):
+def article_year(request, year,month):
     return HttpResponse(year)
 
 
@@ -29,7 +29,16 @@ def number(request, num, year):
 
 
 def register(request):
+    print("return url_path:", request.path)
+    print("return url_path:", request.get_full_path())
+
     if request.method == "POST":
-        print(request.GET.get('user'))
+        print(request.POST.get("user"))
         return HttpResponse("success!")
-    return render(request, "register.html")
+    return render(request, "register.html", locals())
+
+def login(request):
+    if request.method == "POST":
+        print(request.POST.get('user'))
+        return HttpResponse("Leon 登錄")
+    return render(request,"login.html",locals())

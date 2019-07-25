@@ -34,7 +34,16 @@ Django 可以叫MTV也可以叫MVC
 
 
 views.py 中的 return render() 其實也是回傳HttpResponse
-render() <~ 叫做渲染
+頁面渲染:
+render(request,"register.html")
+return render_to_response("register.html")  不需要回傳request
+
+頁面跳轉:
+redirect("路徑")
+
+
+locals() 可以將函數中所有變量傳給模板
+
 
 setting.py
 STATIC_URL = '/statics/'  # 別名
@@ -105,6 +114,21 @@ blog/urls.py 下次訪問時 http://localhost:8080/blog/xxxx 以blog為開頭
 url(r'register/', views.register, name="reg"),
 這樣就可以訪問使用register
 http://localhost:8080/blog/register/
+
+
+422集
+request可調用的東西
+print("return url_path:", request.path)
+print("return url_path:", request.get_full_path())
+
+{{ }}<~ 模板語言
+
+寫一個登入頁面:
+login.html
+用 request.POST.get("user") 驗證帳號登入
+
+423集
+
 
 
 '''
