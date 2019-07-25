@@ -60,4 +60,51 @@ HTML裡面依舊是static不用再去HTML修改路徑
  <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 
 
+
+
+ 420集
+ 把statics 丟到 blog 並修改setting.py
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "blog","statics"),
+)
+
+urls.py
+url(r'article/\d{4}', views.article_year),
+給任何四個數字就可以訪問,但如果要取值的話要加()
+url(r'article/(\d{4})', views.article_year),
+
+views.py 就能撈到這個東西,這邊用year當行參
+def article_year(request,year):
+    return HttpResponse(year)
+
+用 ?P<> 來進行分組
+url(r'article_year_month/(?P<year>\d{4})/(?P<month>\d{2})', views.article_year_month),
+這邊使用 year 和 month , 所以 views.py 裡面就要用相同的變數名稱
+def article_year_month(request, year, month):
+    return HttpResponse(year + month)
+
+
+urlpatterns = [
+    url(正則表達式, views視圖函數, 參數, 別名),
+]
+
+別名:
+url(r'register/', views.register, name="reg"),
+html裡面就可以使用 {% url reg %}
+<form action="{% url reg %}" method="post">
+渲染過後:
+<form action="/register/" method="post">
+
+
+421集 分發
+mysite/urls.py 裡面放include blog , 這樣就可以分開使用urls.py
+url(r'^blog/', include('blog.urls')),
+
+blog/urls.py 下次訪問時 http://localhost:8080/blog/xxxx 以blog為開頭
+把剛剛寫的register放到blog/urls.py
+url(r'register/', views.register, name="reg"),
+這樣就可以訪問使用register
+http://localhost:8080/blog/register/
+
+
 '''

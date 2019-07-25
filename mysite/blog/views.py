@@ -29,8 +29,7 @@ def number(request, num, year):
 
 
 def register(request):
-    if not request.GET.get("user"):
-        pass
-    else:
-        print(request.GET)
+    if request.method == "POST":
+        print(request.GET.get('user'))
+        return HttpResponse("success!")
     return render(request, "register.html")
