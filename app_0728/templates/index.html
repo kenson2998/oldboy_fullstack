@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%for h in Heros %}
+<div>
+角色一覽:
+<p>{{ h.Name }}</p>
+<p>武器:{{ h.Weapon }}  攻擊力:{{ h.Attack_P }}</p>
+</br>
+</div>
+{% endfor %}
+{%for i in log %}
+
+<p>{{i |safe}}</p>
+{% endfor %}
+
+
+
+</body>
+</html>

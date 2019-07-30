@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>學生註冊</h1>
+
+<form action="{% url 'reg' %}" method="post">
+    <p>姓名:<input type="text" name="user"></p>
+    <p>年齡:<input type="text" name="age"></p>
+    <p>愛好:
+        <input type="checkbox" name="hobby" value="1">籃球
+        <input type="checkbox" name="hobby" value="2">棒球
+        <input type="checkbox" name="hobby" value="3">排球
+
+    </p>
+    <p><input type="submit"></p>
+</form>
+</body>
+</html>

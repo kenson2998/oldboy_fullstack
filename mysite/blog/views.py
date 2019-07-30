@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, render_to_response
+from django.shortcuts import render, HttpResponse, render_to_response, redirect
 import time
 
 
@@ -14,7 +14,7 @@ def show_time(request):  # 必須要有req行參 ,給 user傳輸的
     return render(request, "show_timea.html", locals())
 
 
-def article_year(request, year,month):
+def article_year(request, year, month):
     return HttpResponse(year)
 
 
@@ -33,12 +33,15 @@ def register(request):
     print("return url_path:", request.get_full_path())
 
     if request.method == "POST":
-        print(request.POST.get("user"))
+        if request.POST.get("user") == "leon":
+            # return redirect("/login/") # 使用 redirect 會跳轉到 login url
+            return render(request, "login.html", locals())  # <~ 用render會跳轉頁面,但是url還是原本的register
+
         return HttpResponse("success!")
     return render(request, "register.html", locals())
 
+
 def login(request):
-    if request.method == "POST":
-        print(request.POST.get('user'))
-        return HttpResponse("Leon 登錄")
-    return render(request,"login.html",locals())
+
+    name = request.POST.get("user")
+    return render(request, "login.html", locals())

@@ -1,4 +1,4 @@
-'''
+
 
 外部服務器 : 用於解析HTTP協議
 Apache 、 Nginx
@@ -31,7 +31,9 @@ View 視圖:
 Django 可以叫MTV也可以叫MVC
 你跟Java、PHP的說 MTV他們不懂
 
-
+創建指令
+django-admin startproject mysite
+python manage.py startapp blog
 
 views.py 中的 return render() 其實也是回傳HttpResponse
 頁面渲染:
@@ -40,8 +42,6 @@ return render_to_response("register.html")  不需要回傳request
 
 頁面跳轉:
 redirect("路徑")
-
-
 locals() 可以將函數中所有變量傳給模板
 
 
@@ -129,6 +129,45 @@ login.html
 
 423集
 
+redriect 的用處: 會帶你跳轉到login的視圖函數去處理
 
 
-'''
+if request.POST.get("user") == "leon":
+    # return redirect("/login/") # 使用 redirect 會跳轉到 login url 的函數去處理
+    return render(request, "login.html", locals())  # <~ 用render會跳轉頁面,但是url還是原本的register,重整頁面會回到未登入
+
+
+424集
+
+render 和 redriect 的區別
+1. 如果render 的頁面需要{{模板語言}}渲染,除了register需要寫變數, login 也要再寫,代碼會重複
+2. 最重要的差別在於網址一個還是在register,一個會跳轉到login去處理 ,重新整理以後,又要重新登錄
+
+
+return HttpResponse 寫法缺點：
+1. 維護代價高
+2. 前端發開者必須了解python
+3. 效率低, 前端必須等待後端開發完成,才能寫前端
+
+
+進入Django專案的環境：
+python manage.py shell
+from django.template import Context, Template
+t = Template("my name is {{ name }} . ")
+c = Context({"name":"Leon"})
+t.render(c)
+
+'my name is Leon .'
+
+#low
+for name in ('alex','leon','leo'):
+    t = Template("my name is {{ name }}")
+    print(t.render(Context({"name" : name })))
+
+#good
+
+t = Template("my name is {{ name }}")
+for name in ('alex','leon','leo'):
+    print(t.render(Context({"name" : name })))
+
+
