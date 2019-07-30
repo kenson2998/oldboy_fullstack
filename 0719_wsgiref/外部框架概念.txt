@@ -171,3 +171,11 @@ for name in ('alex','leon','leo'):
     print(t.render(Context({"name" : name })))
 
 
+模板語言:
+深度查詢用句點符號 :
+l = ['123','456','789']
+{{l.0}}  = 123
+d = {'name':'cat'}
+{{ d.name}}  =  cat
+c = role("leon")
+{{c.Name}} = leon
