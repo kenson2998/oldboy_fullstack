@@ -22,3 +22,5 @@ urlpatterns = [
     url(r'^show_time/', views.showtime),
     url(r'^query/', views.query),
 ]
+
+

@@ -179,3 +179,63 @@ d = {'name':'cat'}
 {{ d.name}}  =  cat
 c = role("leon")
 {{c.Name}} = leon
+
+
+425集
+
+filter用法：
+age值加12 :  {{age|add:12}}
+單字開頭字母大寫 {{test|capfirst}}
+時間格式 {{t|date:'Y-m-d h:M:s'}}
+空字串、空列表時,預設值為"空的" {{null|default:'空的'}}
+一個字串格式的html  {{a|safe}}
+{% autoescape off %}
+{{a}}
+{% endautoescape %}
+
+
+426集
+
+標籤(tag)
+if用法:
+{% if age > 9 %} 條件達成後才顯示 {% endif %}
+
+{% if num %}
+    {% if %}
+    ...
+    {% else %}
+    ...
+    {% endif %}
+{% elif %}
+...
+{% else %}
+   ...
+
+{% endif %}
+
+for用法:
+{% for i in l %}
+{{i}}
+{% endfor %}
+
+但是list會需要遍歷index的時候就可以用forloop.counter , 他預設是從1開始計算
+
+forloop.counter 可以用來查詢 list的 index:
+{% for i in l %}
+<p>{{forloop.counter}}: {{i}}</p>
+{% endfor %}
+
+可以用forloop.counter0 從零開始計算
+可以用forloop.revcounter 計數倒轉過來
+可以用forloop.revcounter0 計數倒轉過來,且最後一筆為0
+
+判斷第一個是否為True,就變成紅色
+{% for name in l %}
+{% if forloop.first %}
+  <li style="color:red">
+  {% else %}
+  <li>
+  {% endif %}
+  {{ name }}
+  </li>
+{% endfor %}

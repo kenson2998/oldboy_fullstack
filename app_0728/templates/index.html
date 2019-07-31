@@ -18,12 +18,40 @@
 <p>{{i |safe}}</p>
 {% endfor %}
 
-<p>陣列深度查詢用句點符號： l.0   {{l.0}}</p>
-<p>字典查詢用句點符號：d.name :{{d.name}}</p>
-<p>類查詢用句點符號：c.Name :{{c.Name}}</p>
+<p>陣列深度查詢用句點符號： { {l.0} } :  {{l.0}}</p>
+<p>字典查詢用句點符號：{ {d.name} } :  {{d.name}}</p>
+<p>類查詢用句點符號：{ {c.Name} } :  {{c.Name}}</p>
+<p>filter 用法 age值加12 ,{  {age | add:12} }:  {{age|add:12}}</p>
+<p>filter 用法 單字開頭字母大寫 ,{  {test | capfirst} }:   {{test|capfirst}}</p>
+<p>filter 用法 時間格式 ,{  {t | date:'Y-m-d HH:MM:SS'} }:  {{t|date:'Y-m-d h:M:s'}}</p>
+<p>filter 用法 空字串、空列表時,預設值為"空的" ,{  {null | default:'空的'} }:  {{null|default:'空的'}}</p>
+<p>filter 用法 一個字串格式的html ＜a href=""＞click ＜/a＞ ,{  {a | safe} }:  {{a|safe}}</p>
+{  % autoescape off %  } { { a } } {  % endautoescape %  }
+{% autoescape off %}
+<p>{{a}}</p>
+<p>{{a}}</p>
+{% endautoescape %}
 
 
+{% if age > 9 %}
+<p>if age > 9 就顯示年齡: {{age}}</p>
+{% endif %}
 
+forloop.counter 可以用來查詢 list的 index:
+{% for i in l %}
+<p>{{forloop.revcounter}}: {{i}}</p>
+{% endfor %}
+
+
+{% for name in l %}
+{% if forloop.first %}
+  <li style="color:red">
+  {% else %}
+  <li>
+  {% endif %}
+  {{ name }}
+  </li>
+{% endfor %}
 
 </body>
 </html>

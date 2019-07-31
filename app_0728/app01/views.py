@@ -45,16 +45,21 @@ class role:
         if self.Life_P <= 0:
             return False
 
+
+
 def query(request):
-    l = ['村長','鄉民','恐龍法官']
-    d = {"name":'貓咪',"行為":"傻眼"}
+    l = ['村長', '鄉民', '恐龍法官']
+    d = {"name": '貓咪', "行為": "傻眼"}
+    age = 10
     c = role('leon')
-    return render(request,'index.html',locals())
+    test = "hello world"
+    t = datetime.datetime.now()
+    null = ''
+    a = '<a href="">click</a>'
+    return render(request, 'index.html', locals())
 
 
 def query1(request):
-
-
     Hero0 = role("賽勒斯")
     Hero1 = role("巴頓")
     Hero2 = role("歐非莉雅")
