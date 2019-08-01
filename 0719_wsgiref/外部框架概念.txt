@@ -147,7 +147,7 @@ render 和 redriect 的區別
 return HttpResponse 寫法缺點：
 1. 維護代價高
 2. 前端發開者必須了解python
-3. 效率低, 前端必須等待後端開發完成,才能寫前端
+3. 效率低, 前端必須等待後端開發完成,才能寫前端(前後端一起開發效率才是最高的)
 
 
 進入Django專案的環境：
@@ -239,3 +239,76 @@ forloop.counter 可以用來查詢 list的 index:
   {{ name }}
   </li>
 {% endfor %}
+
+
+427集 標籤
+{% csrf_token %}：
+在使用form表單提交post的時候,如果沒有加上{% csrf_token %}
+會出現Forbidden (403)錯誤 CSRF verification failed. Request aborted.
+這東西不是絕對安全的
+
+{% url %}:
+用於對應urls.py 裡面的name
+
+{% with %}:
+用更簡單的變量名取代更複雜的變量名
+{% with total=qweqrqrsfsfsdfsdfssaf %} {{ total }} {% endwith %}
+
+{% verbatim %}:
+禁止render 渲染功能,  {{ hello }} 就只會顯示: '{{ hello }}'
+{% verbatim %}
+{{ hello }}
+{% endverbatim %}
+
+{% load %}:
+加載標籤庫:
+
+
+428集
+
+自定義filter:
+
+建立一個templatetags目錄在app_427裡面
+裡面建立一個myTag.py檔案:
+from django import template
+from django.utils.safestring import mark_safe
+register =template.Library() #register 名字是固定的,無法改變
+就可以用register這個裝飾器去裝飾def
+@register.filter
+def foo(x,y):
+    return x*y
+
+setting.py要加一串
+TEMPLATES = [
+    {
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+            'libraries': {
+                'myTag': 'app_427.templatetags.myTag',
+            }
+        }
+    }
+]
+
+html裡面加上{% load myTag %}
+就可以使用foo 這個函數
+{{ t | foo:3}}
+
+x = 7 , y = 3
+右邊的y只能傳一個參數
+
+
+simple_tag 和 filter如何調用：
+可以不限制行參數量,只要你def宣告就行
+但是不能放在if for(控制語句)裡面使用
+
+@register.simple_tag
+def simple_kenson(x,y,z):
+    return x*y+z
+{% simple_kenson 3 5 6 %}
+{% simple_kenson t 5 6 %}
