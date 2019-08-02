@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block style %}
+    style
+    {% endblock %}
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>我是title</title>
+    {% endblock %}
+</head>
+<body>
+<div class="outer">
+    <div class="nav">標題</div>
+    <div class="left">
+        <div class="manage"><a href="">老師管理</a></div>
+        <div class="manage"><a href="/student/">學生管理</a></div>
+        <div class="manage"><a href="">課程管理</a></div>
+        <div class="manage"><a href="">班級管理</a></div>
+    </div>
+    <div class="content">
+        {% block content %}
+            WELCOME TO LOGIN
+        {% endblock %}
+    </div>
+
+
+</div>
+</body>
+</html>

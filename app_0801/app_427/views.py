@@ -18,4 +18,4 @@ def login(request):
 
 
 def tag(request):
-    return render(request, 'mytag.html', {"t": 5})
+    return render(request, 'mytag.html', {'t':2})

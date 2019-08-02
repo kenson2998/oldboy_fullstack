@@ -310,5 +310,41 @@ simple_tag 和 filter如何調用：
 @register.simple_tag
 def simple_kenson(x,y,z):
     return x*y+z
+
+
 {% simple_kenson 3 5 6 %}
 {% simple_kenson t 5 6 %}
+
+
+
+429集
+template extend 與 include 延伸繼承
+base當作模板給別的html套用來減少重複的代碼
+base.html:
+{% block content %}  <~ 自定義叫做content 的區塊
+WELCOME TO LOGIN
+{% endblock %}
+
+student.html:
+
+{% extends "base.html" %}
+{% block content %}
+{% for student in student_list %}
+<h1>學生：{{ student }}</h1>
+{% endfor %}
+{% endblock %}
+
+這樣跑student.html的時候會套用base的模板格式
+而base.html中的 {% block content %} WELCOME TO LOGIN {% endblock %}
+想讓WELCOME TO LOGIN 顯示出來的話就可以在students.html使用{{block.super }}
+
+一般使用模板中 越多{% extends %} 標籤越好
+
+
+在student.html中添加{% load staticfiles %}後就可以使用{% include %} 標籤了
+
+{% include "test.html" %}
+test.html 裡面的body內容 會顯示在student.html最下方
+
+
+430集

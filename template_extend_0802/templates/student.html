@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+{{block.super}}
+{% for student in student_list %}
+<h1>學生：{{ student }}</h1>
+{% endfor %}
+{% include "test.html" %}
+{% endblock %}
+
+
+
+
+{% block style  %}
+<style>
+        *{
+        margin:0;
+        padding:0;
+        }
+        .nav{
+        line-height:40px;
+        width:100%;
+        background-color : midnightblue ;
+        color:white;
+        font-size:20px;
+        }
+
+        .left{
+        width:20%;
+        min-height:600px;
+        overflow:auto;
+        background-color:lightgray;
+        }
+
+        .manage{
+        text-align : center;
+        padding : 20px 0px;
+        margin : 20px 0px;
+        font-size: 18px;
+        }
+
+        .left, content{
+        float:left;
+        }
+
+        .content{
+        width:70%;
+        min-height:600px;
+        text-align :center;
+        }
+
+        a{
+        text-decoration:none;
+        }
+
+</style>
+
+{% endblock %}
+
+
+{% block title %}
+    <title>student</title>
+    {% endblock %}
