@@ -364,7 +364,8 @@ django_ORM_0804
 
 django 默認支持sqlite mysql oracle postgresql
 
-djaqngo的ORM 使用python的class來對table進行操作
+djaqngo的ORM:
+使用python的class來對table進行操作
 
 django驅動：
 sqlite :django.db.backends.sqlite3
@@ -398,3 +399,80 @@ Migrations for 'app01':
     - Create model Book
 
 app01/migrations 會出現一個0001_initial.py
+
+使用mysql :
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=qa123 -d mysql
+
+#进入容器
+docker exec -it mysql bash
+
+#登录mysql
+mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'qa123';
+
+#添加远程登录用户
+CREATE USER 'kenson'@'%' IDENTIFIED WITH mysql_native_password BY 'qa123';
+GRANT ALL PRIVILEGES ON *.* TO 'kenson'@'%';
+
+#測試登入
+mysql -u kenson -p
+pwd: qa123
+
+建立一個database
+mysql> create database Django_ORM;
+
+setting.py 裡面設定使用mysql
+python manage.py makemigrations app01
+執行時會報錯Error loading MySQLdb module: No module named 'MySQLdb'
+這邊要在Django_ORM裡的__init__.py加上這句
+import pymysql
+pymysql.install_as_MySQLdb()
+再執行
+python manage.py makemigrations app01
+python manage.py migrate
+就會寫入mysql
+mysql> show tables;
++----------------------------+
+| Tables_in_django_ORM       |
++----------------------------+
+| app01_book                 |
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
++----------------------------+
+11 rows in set (0.01 sec)
+
+
+mysql> desc app01_book;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(20) | NO   |     | NULL    |                |
+| price    | int(11)     | NO   |     | NULL    |                |
+| pub_date | date        | NO   |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.02 sec)
+
+更新：
+新增一個作者class Athor後 一樣打上
+python manage.py makemigrations app01
+python manage.py migrate
+
+select from 查詢資料是很消耗時間的
+ORM的優點是：
+假設公司原先使用mySQL 也使用SQL語法去做事
+某天公司換了另一種資料庫 ,SQL語法就不適用了
+ORM使我們操作可以快速簡單 ,可以無痛更換,快速開發
+避免新手寫SQL語句帶來的性能問題
+缺點是：
+性能有所犧牲
+
+432集
