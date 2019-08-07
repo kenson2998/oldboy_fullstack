@@ -359,7 +359,7 @@ model(數據庫模型) -----ORM------ Object Relation Mapping
 
     一對一 (unique)
 
-431集
+--------------431集--------------
 django_ORM_0804
 
 django 默認支持sqlite mysql oracle postgresql
@@ -448,7 +448,7 @@ mysql> show tables;
 | django_session             |
 +----------------------------+
 11 rows in set (0.01 sec)
-
+mysql> use django_ORM; #切換使用 mysql table
 
 mysql> desc app01_book;
 +----------+-------------+------+-----+---------+----------------+
@@ -475,4 +475,88 @@ ORM使我們操作可以快速簡單 ,可以無痛更換,快速開發
 缺點是：
 性能有所犧牲
 
-432集
+
+--------------432集--------------
+django_ORM_0804
+數據庫增刪改查
+athuor = models.CharField(max_length=32, null=False)  默認null=True 默認可以為空
+python manage.py makemigrations
+執行時會出現athuor 需要默認值的問題
+You are trying to add a non-nullable field 'athuor'
+選1 給他一個默認值為"alex"
+
+表紀錄的添加：
+views與urls 新增
+index與addbook
+views 裡面加上 from app01.models import *
+添加方式一：
+b = Book(name="python基礎", price=99, author="alex", pub_date="2019-08-04")
+b.save()
+mysql> select * from app01_book;
++----+----------+-------+------------+--------+
+| id | name     | price | pub_date   | author |
++----+----------+-------+------------+--------+
+|  1 | python?? |    99 | 2019-08-04 | alex   |
++----+----------+-------+------------+--------+
+
+添加方式二：
+Book.objects.create(name="Linux", price=199, author="alex3", pub_date="2019-08-04")
+Book.objects.create(**dic) <~也可以用字典
+
+
+修改：
+方式一：
+Book.objects.filter(author="alex").update(price=999) #filter用於取多筆
+
+方式二：
+b = Book.objects.get(author="alex") #get 用於搜索單筆的時候
+b.price = 100
+b.save()
+type(b) : QuerySet這是django產生的一個數據集合類型
+
+刪除：
+Book.objects.filter(author="alex3").delete()
+
+
+--------------433集--------------
+django_ORM_0804
+查詢:
+Book.objects.all()
+返回的是一個QuerySet集合：
+[<Book: Book object>, <Book: Book object>, <Book: Book object>]
+Book.objects.all()[::-1]  # 倒著取
+
+Book.objects.first() # 獲得單筆資料 所以不能用於迭代
+Book.objects.last() # 獲得單筆資料 所以不能用於迭代
+Book.objects.get(id=5) # 獲得單筆資料 所以不能用於迭代 ,如果獲得超過1筆以上的結果會報錯
+Book.objects.filter(id=2) # 可迭代對象
+Book.objects.filter(author="alex").values("name")
+
+Book.objects.filter(author="alex").values("name","price") #返回字典
+<QuerySet [{'name': 'Golang', 'price': 199}, {'name': 'MySQL', 'price': 299}]>
+
+Book.objects.filter(author="alex").values_list("name","price") #返回元祖
+<QuerySet [('Golang', 199), ('MySQL', 299)]>
+
+exclude(**kwargs) filter的相反,篩選不匹配的對象
+Book.objects.exclude(author="alex").values_list("name","price")
+
+Book.objects.all().values("name").distinct()  #去重複
+
+
+--------------434集--------------
+django_ORM_0804
+萬能的雙底線 __
+Book.objects.filter(price__gt=50) 價格大於50
+__gte  大於等於
+__lte 下於等於
+__contains  模糊查找
+__icontains 模糊查詢不區分大小寫
+Book.objects.filter(id__lt=10, id__gt=1) id大於1 且小於10的
+Book.objects.filter(id__in=[10,20,30]) id 等於 10、20、30的數據
+Book.objects.exclude(id__in=[10,20,30]) id 不等於 10、20、30的數據
+Book.objects.filter(name__contains="alex")
+Book.objects.filter(name__icontains="alex") 大小寫不敏感
+Book.objects.filter(name__range=[1,2]) 範圍之間
+11
+

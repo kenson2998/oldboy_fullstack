@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, render_to_response, redirect
 import time
 
-
+from django.http import JsonResponse
 # Create your views here.
 
 # request 就是封裝成一個對象
@@ -36,7 +36,6 @@ def register(request):
         if request.POST.get("user") == "leon":
             # return redirect("/login/") # 使用 redirect 會跳轉到 login url
             return render(request, "login.html", locals())  # <~ 用render會跳轉頁面,但是url還是原本的register
-
         return HttpResponse("success!")
     return render(request, "register.html", locals())
 
@@ -45,3 +44,4 @@ def login(request):
 
     name = request.POST.get("user")
     return render(request, "login.html", locals())
+
