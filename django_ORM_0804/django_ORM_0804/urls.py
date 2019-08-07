@@ -22,6 +22,12 @@ urlpatterns = [
     url(r'^addbook/', views.addbook),
     url(r'^updatebook/', views.updatebook),
     url(r'^delbook/', views.delbook),
+    url(r'^selectbook/', views.selectbook),
+
+
+
+
+
     url(r'^md5/([a-zA-Z0-9]{32})', views.md5),
     url(r'^md5_name/([a-zA-Z0-9]{0,10})', views.md5_name),
 

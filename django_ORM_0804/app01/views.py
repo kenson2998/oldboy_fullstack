@@ -14,7 +14,7 @@ def addbook(requests):
     # b = Book(name="python基礎", price=99, author="alex", pub_date="2019-08-04")
     # b.save()
     # 方法二
-    Book.objects.create(name="Linux", price=199, author="alex3", pub_date="2019-08-04")
+    Book.objects.create(name="MySQL", price=299, author="alex", pub_date="2019-08-07")
 
     return HttpResponse("新增成功!")
 
@@ -36,14 +36,26 @@ def delbook(requests):
     return HttpResponse("刪除成功!")
 
 
+def selectbook(request):
+    book_list = Book.objects.all()[::-1]
+    print(book_list)
+    print(book_list[0])
+    print(Book.objects.filter(author="alex").values("name", "price"))
+    print(Book.objects.filter(author="alex").values_list("name", "price"))
+    print(Book.objects.exclude(author="alex").values_list("name","price"))
+    print(Book.objects.all().values("name").distinct())
+
+
+
+    return render(request, "index.html", {"book_list": book_list})
+
+
 def md5(request, x1):
     import hashlib
     # m = hashlib.md5()
     # m.update(x.encode())
     # x1 = m.hexdigest()
     # print(2,x1)  # hex格式加密
-
-
 
     enc = [
         'f2b1fa56c4754138166eab02d0646113',
@@ -77,10 +89,10 @@ def md5(request, x1):
     return HttpResponse("密碼失敗")
 
 
-def md5_name(request,x2):
+def md5_name(request, x2):
     import hashlib
     m = hashlib.md5()
     m.update(x2.encode())
     x1 = m.hexdigest()
-    print(2,x1)  # hex格式加密
-    return HttpResponse(x2+"你的密碼是："+x1+"<a href='/md5/"+x1+"'>點擊驗證</a>")
+    print(2, x1)  # hex格式加密
+    return HttpResponse(x2 + "你的密碼是：" + x1 + "<a href='/md5/" + x1 + "'>點擊驗證</a>")
