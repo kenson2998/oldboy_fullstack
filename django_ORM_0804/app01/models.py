@@ -12,3 +12,7 @@ class Book(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=20)
+
+class publish(models.Model):
+    name = models.CharField(max_length=20)
+    city = models.CharField(max_length=20)

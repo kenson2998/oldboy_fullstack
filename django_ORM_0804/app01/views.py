@@ -14,7 +14,9 @@ def addbook(requests):
     # b = Book(name="python基礎", price=99, author="alex", pub_date="2019-08-04")
     # b.save()
     # 方法二
-    Book.objects.create(name="MySQL", price=299, author="alex", pub_date="2019-08-07")
+    # Book.objects.create(name="MySQL", price=299, author="alex", pub_date="2019-08-07")
+    publish.objects.create(name="天瓏書局", city="taipei")
+    publish.objects.create(name="國立編譯書局", city="taipei")
 
     return HttpResponse("新增成功!")
 
@@ -44,6 +46,7 @@ def selectbook(request):
     print(Book.objects.filter(author="alex").values_list("name", "price"))
     print(Book.objects.exclude(author="alex").values_list("name","price"))
     print(Book.objects.all().values("name").distinct())
+    print(Book.objects.publish)
 
 
 

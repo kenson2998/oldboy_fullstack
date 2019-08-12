@@ -4,8 +4,8 @@
     <list default="true" id="9561ad5f-85a6-4d87-bac9-dfe6c15b22b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/0719_wsgiref/web框架概念.txt" beforeDir="false" afterPath="$PROJECT_DIR$/0719_wsgiref/web框架概念.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/time.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/time.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_ORM_0804/app01/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0804/app01/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_ORM_0804/app01/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0804/app01/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
