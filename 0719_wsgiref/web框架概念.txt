@@ -633,3 +633,14 @@ from django.db.models import Avg,Min,Sum,Max
 >>> Book.objects.filter(authors__name="alex").aggregate(Sum("price"))
 {'price__sum':Decimal('140.00')}
 
+
+
+--------------437集-------------- 教學少一段看不下去啦 跳坑
+誰是多的那一方
+外鍵一定是建在多的那一方
+一個編輯社可以出很多書
+所以Book裡面建外來鍵
+關聯publish,默認關聯主鍵
+
+class Book(models.Model):
+publish = models.ForeignKey("Publish")  # 最後在欄位會自動產生一個欄位為 "Publish_id"

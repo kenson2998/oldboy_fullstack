@@ -1,0 +1,38 @@
+https://www.bilibili.com/video/av22606568/?p=8
+
+#創建django程序
+django-admin startproject mysite
+#進入程序目錄
+cd mysite
+#創建應用
+python manage.py startapp app01
+#執行應用 #執行默認8000port
+python manage.py runserver 8080
+
+mysite
+    mysite
+        - settings.py  # Django配置文件
+        - urls.py      # 路由系統 ： url -> 函數
+        - wsgi.py      # web 服務網關接口 也就是socket,模塊是 wsgirief,uwsgi
+    manage.py
+
+--------------
+集數:day64-07
+專案名:day64
+--------------
+訪問請求
+
+--------------
+集數:day64-09
+專案名:day64
+--------------
+setting 設定 templates 和 static
+
+STATIC_URL = '/static/'  #這是給html檔案呼叫的前綴
+STATICFILES_DIRS = ( os.path.join(BASE_DIR,'sta'),) # 實際指向的目錄名稱
+
+--------------
+集數:day64-10
+專案名:day64
+--------------
+說明 創建有哪些需要注意
