@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9561ad5f-85a6-4d87-bac9-dfe6c15b22b6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/day65/templates/classes.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day65/day65/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/day65/day65/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day65/day65/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/day65/day65/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/全棧第四期筆記" beforeDir="false" afterPath="$PROJECT_DIR$/全棧第四期筆記" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -27,20 +30,21 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/day65" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/template_extend_0802/templates" />
-      <recent name="$PROJECT_DIR$/app_0728" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app_0801/app_427" />
       <recent name="$PROJECT_DIR$/app_0801/app_0801" />
       <recent name="$PROJECT_DIR$/mysite/blog" />
       <recent name="$PROJECT_DIR$/mysite" />
       <recent name="$PROJECT_DIR$/0719_wsgiref" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/day65" />
+      <recent name="$PROJECT_DIR$/template_extend_0802/templates" />
+      <recent name="$PROJECT_DIR$/app_0728" />
     </key>
   </component>
   <component name="RunDashboard">
