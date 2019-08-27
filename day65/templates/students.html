@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>班級列表</h1>
+<h1>學生列表</h1>
 <div>
     <a href="/add_class/">添加</a>
 </div>
@@ -13,16 +13,16 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>課程名稱</th>
+        <th>學生姓名</th>
         <th>所屬班級</th>
         <th>操作</th>
     </tr>
     </thead>
     <tbody>
-    {% for row in class_list %}
+    {% for row in stu %}
     <tr>
         <td>{{ row.id }}</td>
-        <td>{{ row.title }}</td>
+        <td>{{ row.name }}</td>
         <td>
             <a href="/edit_class/?nid={{ row.id }}">編輯</a>
             <a href="/del_class/?nid={{ row.id }}">刪除</a>

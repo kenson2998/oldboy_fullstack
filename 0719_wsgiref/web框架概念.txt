@@ -384,6 +384,19 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+mysql設定為:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_ORM',  # 你的數據庫名稱
+        'USER': 'kenson',  # 使用者
+        'PASSWORD': 'qa123',  # 密碼
+        'HOST': '',  # domain,默認為localhost
+        'PORT': '3306',  # port號
+    }
+}
+
+
 加入app01
 INSTALLED_APPS = (
     'app01',

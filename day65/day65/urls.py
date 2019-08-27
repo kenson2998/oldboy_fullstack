@@ -18,4 +18,5 @@ from app01 import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^classes/', views.classes),
+    url(r'^students/', views.students),
 ]

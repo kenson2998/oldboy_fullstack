@@ -34,9 +34,7 @@ def updatebook(requests):
 
 def delbook(requests):
     Book.objects.filter(author="alex3").delete()
-
     return HttpResponse("刪除成功!")
-
 
 def selectbook(request):
     book_list = Book.objects.all()[::-1]
@@ -47,6 +45,7 @@ def selectbook(request):
     print(Book.objects.exclude(author="alex").values_list("name","price"))
     print(Book.objects.all().values("name").distinct())
     print(Book.objects.publish)
+
 
 
 
