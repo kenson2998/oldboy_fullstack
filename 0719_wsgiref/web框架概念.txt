@@ -619,6 +619,13 @@ class Book(models.Model):
 
       ret4=models.Book.objects.filter(title='Python').values('publisher__city')
       print(ret4)  #[{'publisher__city': '北京'}]
+#反向查找 從publish 查找book的內容
+    p_obj = publish.objects.filter(city="taipei")[0]
+    p_obj = publish.objects.get(id=1)
+    print(p_obj.book_set.values('name'))  # book_set 的b一定是小寫
+
+
+
 
       #正向查找(条件)之多对多
       ret5=models.Book.objects.filter(title='Python').values('author__name')
@@ -629,6 +636,8 @@ class Book(models.Model):
       #注意
       #正向查找的publisher__city或者author__name中的publisher,author是book表中绑定的字段
       #一对多和多对多在这里用法没区别
+
+
 
 from django.db.models import Avg,Min,Sum,Max
 

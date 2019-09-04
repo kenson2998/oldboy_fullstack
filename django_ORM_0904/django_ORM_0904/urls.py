@@ -1,4 +1,4 @@
-"""template_extend_0802 URL Configuration
+"""django_ORM_0904 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -15,11 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from app01 import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^backend/', views.backend),
-    url(r'^student/', views.student),
-    url(r'^backend/', views.backend),
 ]

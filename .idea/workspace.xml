@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9561ad5f-85a6-4d87-bac9-dfe6c15b22b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/day65/templates/students.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/0719_wsgiref/web框架概念.txt" beforeDir="false" afterPath="$PROJECT_DIR$/0719_wsgiref/web框架概念.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day65/app01/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/day65/app01/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day65/app01/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/day65/app01/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day65/day65/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/day65/day65/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day65/day65/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/day65/day65/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day65/templates/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/day65/templates/classes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_ORM_0804/app01/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0804/app01/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django_ORM_0804/app01/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0804/app01/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/全棧第四期筆記" beforeDir="false" afterPath="$PROJECT_DIR$/全棧第四期筆記" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template_extend_0802/template_extend_0802/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/template_extend_0802/template_extend_0802/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template_extend_0802/templates/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/template_extend_0802/templates/student.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

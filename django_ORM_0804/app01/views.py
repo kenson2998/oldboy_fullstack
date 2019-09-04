@@ -44,7 +44,12 @@ def selectbook(request):
     print(Book.objects.filter(author="alex").values_list("name", "price"))
     print(Book.objects.exclude(author="alex").values_list("name","price"))
     print(Book.objects.all().values("name").distinct())
-    print(Book.objects.publish)
+    print(Book.objects.filter(author="alex")[0].publish.city)
+    #反向查找 從publish 查找book的內容
+    p_obj = publish.objects.filter(city="taipei")[0]
+    p_obj = publish.objects.get(id=1)
+    print(p_obj.book_set.values('name'))  # book_set 的b一定是小寫
+
 
 
 
