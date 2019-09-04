@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9561ad5f-85a6-4d87-bac9-dfe6c15b22b6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/django_ORM_0904/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/0719_wsgiref/web框架概念.txt" beforeDir="false" afterPath="$PROJECT_DIR$/0719_wsgiref/web框架概念.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_ORM_0804/app01/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0804/app01/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_ORM_0804/app01/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0804/app01/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template_extend_0802/template_extend_0802/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/template_extend_0802/template_extend_0802/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template_extend_0802/templates/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/template_extend_0802/templates/student.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_ORM_0904/app01/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0904/app01/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_ORM_0904/app01/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0904/app01/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_ORM_0904/django_ORM_0904/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0904/django_ORM_0904/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_ORM_0904/django_ORM_0904/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0904/django_ORM_0904/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_ORM_0904/django_ORM_0904/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_ORM_0904/django_ORM_0904/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +33,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/day65/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/django_ORM_0904" />
     <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -51,6 +53,7 @@
       <recent name="$PROJECT_DIR$/0719_wsgiref" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/django_ORM_0904" />
       <recent name="$PROJECT_DIR$/day65/templates" />
       <recent name="$PROJECT_DIR$/day65" />
       <recent name="$PROJECT_DIR$/template_extend_0802/templates" />

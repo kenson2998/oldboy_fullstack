@@ -625,17 +625,50 @@ class Book(models.Model):
     print(p_obj.book_set.values('name'))  # book_set 的b一定是小寫
 
 
+--------------day52-05集--------------
+https://www.bilibili.com/video/av50804257/?p=5
+django_ORM_0904
+class Book(models.Model):
+    name = models.CharField(max_length=20)
+    price = models.IntegerField()
+    pub_date = models.DateField()
+    author = models.CharField(max_length=32, null=False)
+    publish = models.ForeignKey("publish")
+    authors = models.ManyToManyField("Author")  ####
+    def __str__(self):  # 加__str__ 可以用來顯示 book.objects.all() 這個對象的內容 就不用另外用values()
+        return self.name    #<QuerySet [<Book: MySQL>, <Book: Go>, <Book: py>]>
+
+17:49
 
 
-      #正向查找(条件)之多对多
-      ret5=models.Book.objects.filter(title='Python').values('author__name')
-      print(ret5)
-      ret6=models.Book.objects.filter(author__name="alex").values('title')
-      print(ret6)
++----------------------------+
+| app01_author               |
+| app01_book                 |
+| app01_book_authors         |  ####
+| app01_publish              |
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
++----------------------------+
 
-      #注意
-      #正向查找的publisher__city或者author__name中的publisher,author是book表中绑定的字段
-      #一对多和多对多在这里用法没区别
+
+
+#正向查找(条件)之多对多
+ret5=models.Book.objects.filter(title='Python').values('author__name')
+print(ret5)
+ret6=models.Book.objects.filter(author__name="alex").values('title')
+print(ret6)
+
+#注意
+#正向查找的publisher__city或者author__name中的publisher,author是book表中绑定的字段
+#一对多和多对多在这里用法没区别
 
 
 
