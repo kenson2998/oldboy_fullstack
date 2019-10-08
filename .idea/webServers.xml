@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0d163937-f718-400a-9633-aba6edbe4fe0" name="smb://10.190.22.103" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="" accessType="MOUNT" />
+      </webServer>
+    </option>
+    <groups>
+      <group>
+        <name>work</name>
+        <servers>
+          <name value="smb://10.190.22.103" />
+        </servers>
+      </group>
+    </groups>
+  </component>
+</project>
